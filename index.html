@@ -721,6 +721,11 @@
                 const fotoPrincipal = c.imagenes[0];
                 const cantidadFotos = c.imagenes.length;
 
+                // Solo agregar "Por encargo" si NO es Versión Jugador
+                const htmlPorEncargo = (c.version !== "Versión Jugador") 
+                    ? `<div class="on-order">📌 Por encargo</div>` 
+                    : ``;
+
                 const card = document.createElement('div');
                 card.className = 'card';
                 card.innerHTML = `
@@ -735,7 +740,7 @@
                         <div class="sizes">
                             ${c.talles.map(t => `<span class="size-badge">${t}</span>`).join('')}
                         </div>
-                        <div class="on-order">📌 Por encargo</div>
+                        ${htmlPorEncargo}
                         <div class="whatsapp-container">
                             <a href="${linkWp1}" target="_blank" class="whatsapp-btn">
                                 💬 Pedir al WhatsApp 1
