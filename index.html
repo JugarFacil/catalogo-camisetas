@@ -162,7 +162,7 @@
         .sizes {
             display: flex;
             gap: 5px;
-            margin-bottom: 15px;
+            margin-bottom: 8px;
         }
         .size-badge {
             border: 1px solid #ccc;
@@ -170,6 +170,12 @@
             font-size: 0.8rem;
             border-radius: 4px;
             color: var(--gray);
+        }
+        .on-order {
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: #d9534f;
+            margin-bottom: 15px;
         }
         .whatsapp-container {
             display: flex;
@@ -317,7 +323,7 @@
 
         // LISTA DE PRODUCTOS (CAMISETAS Y SHORTS)
         const productos = [
-            // CAMISETAS
+            // CAMISETAS - VERSIÓN JUGADOR
             {
                 id: 1,
                 categoria: "camisetas",
@@ -484,7 +490,121 @@
                 ]
             },
 
-            // SHORTS (Sección de Shorts)
+            // CAMISETAS - RETROS (5 PLANTILLAS)
+            {
+                id: 20,
+                categoria: "camisetas",
+                nombre: "CAMISETA_RETRO_1",
+                version: "Retro",
+                precio: 35000,
+                talles: ["S", "M", "L", "XL"],
+                imagenes: [
+                    "URL_FOTO"
+                ]
+            },
+            {
+                id: 21,
+                categoria: "camisetas",
+                nombre: "CAMISETA_RETRO_2",
+                version: "Retro",
+                precio: 35000,
+                talles: ["S", "M", "L", "XL"],
+                imagenes: [
+                    "URL_FOTO"
+                ]
+            },
+            {
+                id: 22,
+                categoria: "camisetas",
+                nombre: "CAMISETA_RETRO_3",
+                version: "Retro",
+                precio: 35000,
+                talles: ["S", "M", "L", "XL"],
+                imagenes: [
+                    "URL_FOTO"
+                ]
+            },
+            {
+                id: 23,
+                categoria: "camisetas",
+                nombre: "CAMISETA_RETRO_4",
+                version: "Retro",
+                precio: 35000,
+                talles: ["S", "M", "L", "XL"],
+                imagenes: [
+                    "URL_FOTO"
+                ]
+            },
+            {
+                id: 24,
+                categoria: "camisetas",
+                nombre: "CAMISETA_RETRO_5",
+                version: "Retro",
+                precio: 35000,
+                talles: ["S", "M", "L", "XL"],
+                imagenes: [
+                    "URL_FOTO"
+                ]
+            },
+
+            // CAMISETAS - MANGA LARGA (5 PLANTILLAS)
+            {
+                id: 25,
+                categoria: "camisetas",
+                nombre: "CAMISETA_MANGA_LARGA_1",
+                version: "Manga Larga",
+                precio: 35000,
+                talles: ["S", "M", "L", "XL"],
+                imagenes: [
+                    "URL_FOTO"
+                ]
+            },
+            {
+                id: 26,
+                categoria: "camisetas",
+                nombre: "CAMISETA_MANGA_LARGA_2",
+                version: "Manga Larga",
+                precio: 35000,
+                talles: ["S", "M", "L", "XL"],
+                imagenes: [
+                    "URL_FOTO"
+                ]
+            },
+            {
+                id: 27,
+                categoria: "camisetas",
+                nombre: "CAMISETA_MANGA_LARGA_3",
+                version: "Manga Larga",
+                precio: 35000,
+                talles: ["S", "M", "L", "XL"],
+                imagenes: [
+                    "URL_FOTO"
+                ]
+            },
+            {
+                id: 28,
+                categoria: "camisetas",
+                nombre: "CAMISETA_MANGA_LARGA_4",
+                version: "Manga Larga",
+                precio: 35000,
+                talles: ["S", "M", "L", "XL"],
+                imagenes: [
+                    "URL_FOTO"
+                ]
+            },
+            {
+                id: 29,
+                categoria: "camisetas",
+                nombre: "CAMISETA_MANGA_LARGA_5",
+                version: "Manga Larga",
+                precio: 35000,
+                talles: ["S", "M", "L", "XL"],
+                imagenes: [
+                    "URL_FOTO"
+                ]
+            },
+
+            // SHORTS
             {
                 id: 16,
                 categoria: "shorts",
@@ -615,6 +735,7 @@
                         <div class="sizes">
                             ${c.talles.map(t => `<span class="size-badge">${t}</span>`).join('')}
                         </div>
+                        <div class="on-order">📌 Por encargo</div>
                         <div class="whatsapp-container">
                             <a href="${linkWp1}" target="_blank" class="whatsapp-btn">
                                 💬 Pedir al WhatsApp 1
