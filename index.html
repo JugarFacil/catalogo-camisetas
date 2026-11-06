@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jugar Fácil - Catálogo</title>
+    <!-- Favicon personalizado -->
+    <link rel="icon" href="URL_FAVICON" type="image/png">
     <style>
         :root {
             --primary: #111111;
@@ -169,6 +171,17 @@
             font-size: 0.8rem;
             border-radius: 4px;
             color: var(--gray);
+            cursor: pointer;
+            transition: all 0.2s;
+            user-select: none;
+        }
+        .size-badge:hover {
+            border-color: var(--primary);
+        }
+        .size-badge.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
         }
         .on-order {
             font-size: 0.85rem;
@@ -281,7 +294,7 @@
             <!-- SUBCATEGORÍAS (Solo para Camisetas) -->
             <div class="filters" id="subcategories-container">
                 <button class="filter-btn subcat-btn active" onclick="filtrarSubcategoria('todas')">Todas las camisetas</button>
-                <button class="filter-btn subcat-btn" onclick="filtrarSubcategoria('Versión Jugador')">Versión Jugador</button>
+                <button class="filter-btn subcat-btn" onclick="filtrarSubcategoria('Temporada 26/27')">Temporada 26/27</button>
                 <button class="filter-btn subcat-btn" onclick="filtrarSubcategoria('Retro')">Retros</button>
                 <button class="filter-btn subcat-btn" onclick="filtrarSubcategoria('Manga Larga')">Manga Larga</button>
             </div>
@@ -311,14 +324,23 @@
         // TUS DOS NÚMEROS DE WHATSAPP
         const numero1 = "5493813038910"; 
         const numero2 = "5493813491117"; 
+
+        // MEMORIA DE TALLES SELECCIONADOS POR PRODUCTO
+        const tallesSeleccionados = {};
+
+        function seleccionarTalle(idProducto, talle) {
+            tallesSeleccionados[idProducto] = talle;
+            renderizarProductos();
+        }
+
         // LISTA DE PRODUCTOS (CAMISETAS Y SHORTS)
         const productos = [
-            // CAMISETAS - VERSIÓN JUGADOR
+            // CAMISETAS - TEMPORADA 26/27
             {
                 id: 1,
                 categoria: "camisetas",
                 nombre: "Boca Titular 26/27",
-                version: "Versión Jugador",
+                version: "Temporada 26/27",
                 precio: 35000,
                 talles: ["S", "M", "L", "XL"],
                 imagenes: [
@@ -329,7 +351,7 @@
                 id: 2,
                 categoria: "camisetas",
                 nombre: "River Titular 26/27",
-                version: "Versión Jugador",
+                version: "Temporada 26/27",
                 precio: 35000,
                 talles: ["S", "M", "L", "XL"],
                 imagenes: [
@@ -341,7 +363,7 @@
                 id: 3,
                 categoria: "camisetas",
                 nombre: "Boca Suplente 26/27",
-                version: "Versión Jugador",
+                version: "Temporada 26/27",
                 precio: 35000,
                 talles: ["S", "M", "L", "XL"],
                 imagenes: [
@@ -353,7 +375,7 @@
                 id: 4,
                 categoria: "camisetas",
                 nombre: "River Tricolor 26/27",
-                version: "Versión Jugador",
+                version: "Temporada 26/27",
                 precio: 35000,
                 talles: ["S", "M", "L", "XL"],
                 imagenes: [
@@ -365,7 +387,7 @@
                 id: 5,
                 categoria: "camisetas",
                 nombre: "Manchester City Titular 26/27",
-                version: "Versión Jugador",
+                version: "Temporada 26/27",
                 precio: 35000,
                 talles: ["S", "M", "L", "XL"],
                 imagenes: [
@@ -376,7 +398,7 @@
                 id: 6,
                 categoria: "camisetas",
                 nombre: "Manchester City Alternativa 26/27",
-                version: "Versión Jugador",
+                version: "Temporada 26/27",
                 precio: 35000,
                 talles: ["S", "M", "L", "XL"],
                 imagenes: [
@@ -387,7 +409,7 @@
                 id: 7,
                 categoria: "camisetas",
                 nombre: "Como Titular 26/27",
-                version: "Versión Jugador",
+                version: "Temporada 26/27",
                 precio: 35000,
                 talles: ["S", "M", "L", "XL"],
                 imagenes: [
@@ -398,7 +420,7 @@
                 id: 8,
                 categoria: "camisetas",
                 nombre: "Barcelona Titular 26/27",
-                version: "Versión Jugador",
+                version: "Temporada 26/27",
                 precio: 35000,
                 talles: ["S", "M", "L", "XL"],
                 imagenes: [
@@ -409,7 +431,7 @@
                 id: 9,
                 categoria: "camisetas",
                 nombre: "Chelsea Titular 26/27",
-                version: "Versión Jugador",
+                version: "Temporada 26/27",
                 precio: 35000,
                 talles: ["S", "M", "L", "XL"],
                 imagenes: [
@@ -420,7 +442,7 @@
                 id: 10,
                 categoria: "camisetas",
                 nombre: "Chelsea Suplente 26/27",
-                version: "Versión Jugador",
+                version: "Temporada 26/27",
                 precio: 35000,
                 talles: ["S", "M", "L", "XL"],
                 imagenes: [
@@ -432,7 +454,7 @@
                 id: 11,
                 categoria: "camisetas",
                 nombre: "Bayern Munich Alternativa 26/27",
-                version: "Versión Jugador",
+                version: "Temporada 26/27",
                 precio: 35000,
                 talles: ["S", "M", "L", "XL"],
                 imagenes: [
@@ -443,7 +465,7 @@
                 id: 12,
                 categoria: "camisetas",
                 nombre: "Inter de Miami Suplente 26/27",
-                version: "Versión Jugador",
+                version: "Temporada 26/27",
                 precio: 35000,
                 talles: ["S", "M", "L", "XL"],
                 imagenes: [
@@ -454,7 +476,7 @@
                 id: 13,
                 categoria: "camisetas",
                 nombre: "Inter de Milan Titular 26/27",
-                version: "Versión Jugador",
+                version: "Temporada 26/27",
                 precio: 35000,
                 talles: ["S", "M", "L", "XL"],
                 imagenes: [
@@ -466,7 +488,7 @@
                 id: 14,
                 categoria: "camisetas",
                 nombre: "Manchester United Titular 26/27",
-                version: "Versión Jugador",
+                version: "Temporada 26/27",
                 precio: 35000,
                 talles: ["S", "M", "L", "XL"],
                 imagenes: [
@@ -478,7 +500,7 @@
                 id: 15,
                 categoria: "camisetas",
                 nombre: "Arsenal Titular 26/27",
-                version: "Versión Jugador",
+                version: "Temporada 26/27",
                 precio: 35000,
                 talles: ["S", "M", "L", "XL"],
                 imagenes: [
@@ -1024,7 +1046,8 @@
                 precio: 50000,
                 talles: ["S", "M", "L", "XL"],
                 imagenes: [
-                    "URL_FOTO"
+                    "URL_FOTO_1",
+                    "URL_FOTO_2"
                 ]
             },
             {
@@ -1035,7 +1058,8 @@
                 precio: 50000,
                 talles: ["S", "M", "L", "XL"],
                 imagenes: [
-                    "https://i.ibb.co/ns9LpRfW/IMG-9277.jpg"
+                    "https://i.ibb.co/ns9LpRfW/IMG-9277.jpg",
+                    "URL_FOTO_2"
                 ]
             },
             {
@@ -1046,7 +1070,8 @@
                 precio: 50000,
                 talles: ["S", "M", "L", "XL"],
                 imagenes: [
-                    "https://i.ibb.co/FkG0JZtm/IMG-9279.jpg"
+                    "https://i.ibb.co/FkG0JZtm/IMG-9279.jpg",
+                    "URL_FOTO_2"
                 ]
             },
             {
@@ -1057,7 +1082,8 @@
                 precio: 50000,
                 talles: ["S", "M", "L", "XL"],
                 imagenes: [
-                    "https://i.ibb.co/99kHBCH3/IMG-9283.jpg"
+                    "https://i.ibb.co/99kHBCH3/IMG-9283.jpg",
+                    "URL_FOTO_2"
                 ]
             },
             // Espacios nuevos para Shorts
@@ -1191,13 +1217,17 @@
                 return true;
             });
             filtrados.forEach(c => {
-                const mensaje = `Hola! Me interesa ${c.nombre} (${c.version}). El precio publicado es de $${c.precio}. ¿Sigue disponible?`;
+                // Obtener el talle seleccionado (por defecto el primero o M)
+                const talleSeleccionado = tallesSeleccionados[c.id] || c.talles[0];
+
+                const mensaje = `Hola! Me interesa ${c.nombre} (${c.version}) en talle ${talleSeleccionado}. El precio publicado es de $${c.precio}. ¿Sigue disponible?`;
                 const linkWp1 = `https://wa.me/${numero1}?text=${encodeURIComponent(mensaje)}`;
                 const linkWp2 = `https://wa.me/${numero2}?text=${encodeURIComponent(mensaje)}`;
                 const fotoPrincipal = c.imagenes[0];
                 const cantidadFotos = c.imagenes.length;
-                // Solo agregar "Por encargo" si NO es Versión Jugador
-                const htmlPorEncargo = (c.version !== "Versión Jugador") 
+                
+                // Mostrar "Por encargo" si NO es Temporada 26/27 (ni shorts)
+                const htmlPorEncargo = (c.version !== "Temporada 26/27" && c.categoria === "camisetas") 
                     ? `<div class="on-order">📌 Por encargo</div>` 
                     : ``;
                 const card = document.createElement('div');
@@ -1212,7 +1242,7 @@
                         <div class="version">${c.version}</div>
                         <div class="price">$${c.precio.toLocaleString()}</div>
                         <div class="sizes">
-                            ${c.talles.map(t => `<span class="size-badge">${t}</span>`).join('')}
+                            ${c.talles.map(t => `<span class="size-badge ${t === talleSeleccionado ? 'active' : ''}" onclick="seleccionarTalle(${c.id}, '${t}')">${t}</span>`).join('')}
                         </div>
                         ${htmlPorEncargo}
                         <div class="whatsapp-container">
